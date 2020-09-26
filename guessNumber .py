@@ -17,14 +17,18 @@ def inputNumber(lowerRange,upperRange):
     randBool = True
     while randBool: 
       try:
-          guessNumber=int(input(f"Guess the number between {lowerRange} to {upperRange}: "))
-          if guessNumber<=lowerRange or guessNumber>=upperRange:
-              print(f"\nPlease only enter the number between the range {lowerRange} to {upperRange}")
-          else:
-              randBool=False
-              return guessNumber
+        guessNumber=input(f"Guess the number between {lowerRange} to {upperRange}: ")
+        guessNumber=int(guessNumber)
+        if guessNumber<=lowerRange or guessNumber>=upperRange:
+            print(f"\nPlease only enter the number between the range {lowerRange} to {upperRange}")
+        else:
+            randBool=False
+            return guessNumber
       except:
-          print("\nInvalid input! Please enter again.")
+        if not guessNumber:
+          	print("Please enter any number:")
+        else:
+          	print("\nInvalid input! Please enter again.")
 
     
 def guessCheck(lowerRange,upperRange,randomNumber,guessNumber):
